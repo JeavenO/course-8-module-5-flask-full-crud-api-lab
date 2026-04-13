@@ -78,7 +78,77 @@ The Flask API should be structured as follows:
 - Use `jsonify()` for consistent JSON responses
 
 ---
+# Flask CRUD API
 
+## Description
+This project is a simple RESTful API built with Flask that allows users to manage events.
+
+It supports:
+- Creating events
+- Updating events
+- Deleting events
+
+---
+
+## Routes
+
+### POST /events
+Create a new event
+
+Request:
+{
+  "title": "Hackathon"
+}
+
+Response:
+{
+  "id": 3,
+  "title": "Hackathon"
+}
+
+Status: 201 Created
+
+---
+
+### PATCH /events/<id>
+Update an event title
+
+Request:
+{
+  "title": "Hackathon 2025"
+}
+
+Response:
+{
+  "id": 1,
+  "title": "Hackathon 2025"
+}
+
+Status: 200 OK
+
+---
+
+### DELETE /events/<id>
+Delete an event
+
+Response:
+No content
+
+Status: 204 No Content
+
+---
+
+## Error Handling
+
+- 400 Bad Request → Missing title
+- 404 Not Found → Event does not exist
+
+---
+
+## How to Run
+
+```bash
+python app.py
 ### Task 3: Develop the Code
 
 Create `app.py` and start with the following structure:
